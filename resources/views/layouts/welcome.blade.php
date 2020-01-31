@@ -14,46 +14,25 @@
   
         <style>
 
-            .body{
-                /* background-image: url('/icda/resources/views/images/1.jpg'); */
-                background-size: cover;
-            }
             body{
-                background: #fbfbfb;
-                color: grey;
+                background-image: url('/icda/resources/views/images/1.jpg');
+                background-size: cover;
             }
             h6, h2{
                 font-weight: lighter;
             }
             .jumbotron-custom{
-                background: rgba(255, 255, 255, 0.5);
+                background: rgba(255, 255, 255, 0.4);
                 box-shadow: 1px 1px 15px grey;
                 max-width: 70%; 
                 margin: auto;
                 color: darkslategrey;
             }
-            .span-date{
-                font-size: 12px;
-                font-style: italic;
-                display: inline-block;
-                border: 1px solid lightgrey;
-                padding-left: 5px;
-                padding-right: 5px;
-                margin: 2px auto 10px auto;
-
-            }
-            .reg-card{
-                margin: 20px auto;
-                background-color: #fff;
-                border: 3px double #ddd;
-                /* box-shadow: 1px 1px 5px grey; */
-                border-radius: 3px;
-            }
+            
         </style>
 <script src="https://kit.fontawesome.com/c98b43ede1.js" crossorigin="anonymous"></script>
 </head>
 <body class="body">
-@include('inc.navbar')
     @yield('content')
 
 <script src="{{ asset('js/app.js') }}" type="text/js"></script>

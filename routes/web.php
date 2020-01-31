@@ -22,4 +22,8 @@ Route::get('/minutes', 'PagesController@getMinutes');
 Route::get('/contactus', 'PagesController@contactus');
 
 Route::resource('minutes','MinutesController');
+Route::resource('registry','RegistryController');
+
+Route::get('/add-agenda', 'PagesController@addAgenda');
+Route::post('/add-agenda', 'minutesController@addAgenda');
 

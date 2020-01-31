@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.welcome')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
   <hr class="my-4">
   <p>If you are already a member, sign in below. Otherwise, contact the secretary to create an account for you.</p>
   <a class="btn btn-primary btn-md" href="/icda/public/signin" role="button">Sign In</a> 
-  <a class="btn btn-success btn-md" href="//icda/public/contactus" role="button">Contact Us</a>
+  <a class="btn btn-success btn-md" href="/icda/public/contactus" role="button">Contact Us</a>
 </div>
 </div>
 @endsection
