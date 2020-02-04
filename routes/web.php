@@ -27,3 +27,4 @@ Route::resource('registry','RegistryController');
 Route::post('/add-agenda', 'minutesController@addAgenda');
 Route::post('/upload-minutes', 'minutesController@upload');
 Route::put('/edit-agenda/{id}', 'MinutesController@editAgenda');
+Route::delete('/delete-agenda/{id}', 'MinutesController@deleteAgenda');

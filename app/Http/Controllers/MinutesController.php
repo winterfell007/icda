@@ -84,6 +84,16 @@ class MinutesController extends Controller
         return redirect('minutes')->with('success', 'Agenda Updated');
         return $id;
     }
+    public function deleteAgenda(Request $request, $id)
+    {
+        
+        
+        $agenda = Agenda::find($id);
+        $agenda->delete();
+            
+        return redirect('minutes')->with('warning', 'Agenda Deleted');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

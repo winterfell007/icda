@@ -11,6 +11,22 @@
 
 @endif
 
+
+@if (session('secondary'))
+<div class="alert alert-secondary">
+    {{session('secondary')}}
+</div>
+
+@endif
+
+
+@if (session('warning'))
+<div class="alert alert-warning">
+    {{session('warning')}}
+</div>
+
+@endif
+
 @if (session('error'))
 <div class="alert alert-error">
     {{session('error')}}

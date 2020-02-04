@@ -151,7 +151,7 @@
               @foreach ($agendas as $agenda) @if($agenda->minutes_id == $minute->id)
               <div class="tab-pane fade show" id="{{'list-home'.$agenda->id}}" role="tabpanel" aria-labelledby="list-home-list">
               <div><button class="btn btn-sm btn-outline-primary m-1" data-toggle="tooltip" title="Edit this agenda item" id="{{'edit'.$agenda->id}}" onclick="editAgenda('{{$minute->id}}', '{{$agenda->id}}', '{{$agenda->notes}}', '{{$agenda->agenda_item}}')"><i class="fas fa-pencil-alt"></i></button>
-                  <a href="deleteAgenda"><button class="btn btn-sm btn-outline-danger m-1" data-toggle="tooltip" title="Delete this agenda item"><i class=" fas fa-trash-alt"></i></button></a>
+              <form style="display:inline;" method="POST" action="delete-agenda/{{$agenda->id}}"> @csrf @method('DELETE') <button class="btn btn-sm btn-outline-danger m-1" data-toggle="tooltip" title="Delete this agenda item"><i class=" fas fa-trash-alt"></i></button></form>
                 </div>
                 <p>
                   {{$agenda->notes}}
