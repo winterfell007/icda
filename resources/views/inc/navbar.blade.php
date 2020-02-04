@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/icda/public/minutes">Minutes</a>
+        <a class="nav-link" href="/icda/public/minutes">Meetings</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/icda/public/payments">Payments</a>

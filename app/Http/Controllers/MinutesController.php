@@ -27,7 +27,6 @@ class MinutesController extends Controller
         }
         );
 
-    
         return view('minutes.minutes')->with($vars);
     }
     public function addAgenda(Request $request)
@@ -44,6 +43,46 @@ class MinutesController extends Controller
 
             $agenda->save();
         return redirect('minutes')->with('success', 'New item successfully added to agenda');
+    }
+
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'meeting-date'=> 'required',
+            'upload-file'=> "required|mimetypes:application/pdf|max:10000",
+        ]);
+        
+
+        $filenameWithExt = $request->file('upload-file')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $ext = $request->file('upload-file')->getClientOriginalExtension();
+
+        $filenameToStore = $filename.'_'.time().'.'.$ext;
+        $path = $request->file('upload-file')->storeAs('public/uploaded_minutes', $filenameToStore);
+
+
+        $minute = new Minute;
+            $minute->meeting_date = $request->input('meeting-date');
+            $minute->minute_dir = $filenameToStore;
+            
+            $minute->save();
+        return redirect('minutes')->with('success', "Minutes for ".$request->input('meeting-date')." has been successfully uploaded");
+    }
+
+    public function editAgenda(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title'=> 'required',
+        ]);
+        
+        $agenda = Agenda::find($id);
+            $agenda->agenda_item = $request->input('title');
+            $agenda->notes = $request->input('notes');
+            $agenda->status = $request->input('sub-btn');
+
+            $agenda->save();
+        return redirect('minutes')->with('success', 'Agenda Updated');
+        return $id;
     }
     /**
      * Show the form for creating a new resource.
