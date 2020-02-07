@@ -25,6 +25,10 @@ class RegistryController extends Controller
     {
         //
     }
+    public function getUsers()
+    {
+        return view('registry.users');
+    }
 
     /**
      * Store a newly created resource in storage.

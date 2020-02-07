@@ -93,7 +93,19 @@ class MinutesController extends Controller
             
         return redirect('minutes')->with('warning', 'Agenda Deleted');
     }
+    public function deleteMinutes(Request $request, $id)
+    {
+        
+        //delete pdf file
 
+        //delete associated agenda
+
+        //delete minute
+        $minutes = Minute::find($id);
+        $minutes->delete();
+            
+        return redirect('minutes')->with('warning', 'Minutes Deleted');
+    }
     /**
      * Show the form for creating a new resource.
      *

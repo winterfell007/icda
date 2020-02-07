@@ -22,9 +22,11 @@ Route::get('/minutes', 'PagesController@getMinutes');
 Route::get('/contactus', 'PagesController@contactus');
 
 Route::resource('minutes','MinutesController');
-Route::resource('registry','RegistryController');
+Route::get('/registry/new-user','RegistryController@index');
+Route::get('/registry/users','RegistryController@getUsers');
 
 Route::post('/add-agenda', 'minutesController@addAgenda');
 Route::post('/upload-minutes', 'minutesController@upload');
 Route::put('/edit-agenda/{id}', 'MinutesController@editAgenda');
 Route::delete('/delete-agenda/{id}', 'MinutesController@deleteAgenda');
+Route::delete('/delete-minutes/{id}', 'MinutesController@deleteMinutes');

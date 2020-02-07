@@ -2,7 +2,7 @@
 <div class="nav-scroller bg-white shadow-sm">
         <nav class="nav nav-underline">
           <a class="nav-link active" href="#">Register New User</a>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="users">
             View Users
             <span class="badge badge-pill bg-light align-text-bottom">27</span>
           </a>
