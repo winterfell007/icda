@@ -49,6 +49,10 @@
                 /* box-shadow: 1px 1px 5px grey; */
                 border-radius: 3px;
             }
+            .approve-user-details{
+                margin-left: 10px;
+                font-size: 12px;
+            }
         </style>
 <script src="https://kit.fontawesome.com/c98b43ede1.js" crossorigin="anonymous"></script>
 </head>
