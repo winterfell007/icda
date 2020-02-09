@@ -18,7 +18,7 @@
 Route::get('/', 'PagesController@index');
 Route::get('/dashboard', 'PagesController@dashboard');
 Route::get('/signin', 'PagesController@signIn');
-Route::get('/minutes', 'PagesController@getMinutes');
+Route::get('/meetings/attendances', 'PagesController@getAttendances');
 Route::get('/contactus', 'PagesController@contactus');
 
 Route::resource('minutes','MinutesController');

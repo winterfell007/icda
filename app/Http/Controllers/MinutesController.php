@@ -27,7 +27,7 @@ class MinutesController extends Controller
         }
         );
 
-        return view('minutes.minutes')->with($vars);
+        return view('meetings.minutes')->with($vars);
     }
     public function addAgenda(Request $request)
     {

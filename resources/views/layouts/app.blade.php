@@ -53,6 +53,13 @@
                 margin-left: 10px;
                 font-size: 12px;
             }
+            .attendance-date-navs > a{
+                color: dimgrey;
+            }
+            .attendance-date-navs > a.active {
+                background: dimgrey!important;
+                color: lightgrey!important;
+            }
         </style>
 <script src="https://kit.fontawesome.com/c98b43ede1.js" crossorigin="anonymous"></script>
 </head>

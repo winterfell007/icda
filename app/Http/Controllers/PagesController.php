@@ -18,5 +18,7 @@ class PagesController extends Controller
     public function contactus(){
         return view('pages.contactus');
     }
-    
+    public function getAttendances(){
+        return view('meetings.viewAttendances');
+    }
 }

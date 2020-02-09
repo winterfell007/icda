@@ -69,7 +69,7 @@
   <div class="col-md-4">
     <!-- Flexbox container for aligning the toasts -->
     @for ($i = 0; $i
-    < 7; $i++) <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    < 7; $i++) <div class="toast show bg-light" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <div class="mr-auto">Atanda A
           <div class="badge badge-light">member</div>

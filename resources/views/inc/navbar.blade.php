@@ -1,5 +1,5 @@
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-success">
     <a class="navbar-brand mr-auto mr-lg-0" href="/icda/public/">Ifesokan CDA</a>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
     <span class="navbar-toggler-icon"></span>
