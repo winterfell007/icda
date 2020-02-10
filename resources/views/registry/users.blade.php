@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.general');
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
     <a class="nav-link " href="new-user">Register New User</a>
@@ -37,11 +37,11 @@
       <div class="tab-content" id="myTabContent">
         <br>
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          @for ($i = 0; $i < 7; $i++) 
+          @foreach ($users as $user) 
           <div class="card show">
             <div class="toast-header">
               <img src="https://" class="rounded mr-2" alt="">
-              <div class="mr-auto">Atanda A
+              <div class="mr-auto">{{ $user->firstname }} {{$user->lastname}}
               <div class="badge badge-primary"><i class="fas fa-check-circle"></i> - #{{rand(10000, 99999)}}</div>
               </div>
             </div>
@@ -55,7 +55,8 @@
               <div class="btn btn-sm btn-warning float-right m-1">Disapprove <i class="fas fa-times"></i></div>
             </div>
         </div>
-        <br> @endfor
+        <br> 
+        @endforeach
 
 
       </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Sec Nav Start --}}
+@extends('layouts.general') {{-- Sec Nav Start --}}
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
     <a class="nav-link active" href="#">Minutes</a>
@@ -75,7 +75,7 @@
       <div class="card card-body bg-light">
         <span> 
         
-        <h6><a class="text-secondary" target="_blank" href="storage/uploaded_minutes/{{$minute->minute_dir}}">Minutes for {{$minute->meeting_date}} meeting </a> <span>  <a href="storage/uploaded_minutes/{{$minute->minute_dir}}" download><button class="btn btn-primary float-right">Download <i class="fas fa-download"></i></button></a> <form style="display:inline;" action="delete-minutes/{{$minute->id}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-outline-danger float-right m-1" data-toggle="tooltip" title="Delete this minute"><i class=" fas fa-trash-alt"></i></button></form></span></h6>
+        <h6><a class="text-secondary" target="_blank" href="storage/uploaded_minutes/{{$minute->minute_dir}}">Minutes for {{$minute->meeting_date}} meeting </a> <span>  <a href="storage/uploaded_minutes/{{$minute->minute_dir}}" download><button class="btn btn-outline-secondary float-right">Download <i class="fas fa-download"></i></button></a> <form style="display:inline;" action="delete-minutes/{{$minute->id}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-outline-danger float-right m-1" data-toggle="tooltip" title="Delete this minute"><i class=" fas fa-trash-alt"></i></button></form></span></h6>
         
       </span>
       </div>
@@ -175,7 +175,7 @@
 
 
   @endforeach @else
-  <h4>No posts found</h4>
+  <h6>No minutes yet. Notify the secretary to upload minutes</h6>
   @endif {{$minutes->links()}}
 
 

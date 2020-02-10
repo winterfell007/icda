@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Sec Nav Start --}}
+@extends('layouts.general') {{-- Sec Nav Start --}}
 <div class="nav-scroller bg-white shadow-sm">
     <nav class="nav nav-underline">
         <a class="nav-link" href="minutes">Minutes</a>
@@ -23,13 +23,41 @@
 
 
 
+
+
 @section('content')
 <div class="container">
     <br>
     <div class="row">
         <div class="col-2">
 
-            <button class="btn btn-outline-success">New &nbsp;&nbsp;<i class="fas fa-marker"></i></button>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">New &nbsp;&nbsp;<i class="fas fa-marker"></i></button>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Discard</button>
+                            <button type="button" class="btn btn-success">Submit Attendance</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Modal End --}}
+
+
+
             <br><br>
             <div class="nav flex-column nav-pills attendance-date-navs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
@@ -66,7 +94,8 @@
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
                             <ul class="list-group">
-                                <li class="list-group-item">Cras justo odio  <div class="badge badge-light"> #{{rand(10000,99999)}} | Chairman</div>
+                                <li class="list-group-item">Cras justo odio
+                                    <div class="badge badge-light"> #{{rand(10000,99999)}} | Chairman</div>
                                     <div class="badge badge-light text-success float-right">present</div>
                                 </li>
                                 <li class="list-group-item">Dapibus ac facilisis in

@@ -15,10 +15,21 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('propertyID');
+            $table->string('title');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('mobileNumber');
+            $table->string('profession');
+            $table->string('zoneCode');
+            $table->string('gender');
+            $table->string('maritalStatus');
+            $table->string('membership');
+            $table->string('address');
+            $table->string('username')->unique();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -34,3 +45,11 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
+
+// play.supermartng.com
+// admin -  staging-admin.supermartng.com
+
+
+// healthplus play-hp.supermartng.com
+// nivas
