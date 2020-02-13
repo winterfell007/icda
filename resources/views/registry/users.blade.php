@@ -41,13 +41,13 @@
           <div class="card show">
             <div class="toast-header">
               <img src="https://" class="rounded mr-2" alt="">
-              <div class="mr-auto">{{ $user->firstname }} {{$user->lastname}}
-              <div class="badge badge-primary"><i class="fas fa-check-circle"></i> - #{{rand(10000, 99999)}}</div>
+              <div class="mr-auto">{{ $user->username }}
+              <div class="badge badge-primary"><i class="fas fa-check-circle"></i> - #{{$user->propertyID}}</div>
               </div>
             </div>
             <div class="toast-body">
               <div class="text-muted approve-user-details ">
-                <div class="text-secondary">72, Olatunji Street, Ojota <i class="far fa-dot-circle text-warning"></i> Alhaji AbdulAzeez Atanda <i class="far fa-dot-circle text-warning"></i> aatanda.dammy@gmail.com</div>
+                <div class="text-secondary">{{$user->address}}<i class="far fa-dot-circle text-warning"></i> {{$user->title}} {{ $user->firstname }} {{$user->lastname}} <i class="far fa-dot-circle text-warning"></i> aatanda.dammy@gmail.com</div>
                 {{-- <div></div>
                 <div></div> --}}
               </div>

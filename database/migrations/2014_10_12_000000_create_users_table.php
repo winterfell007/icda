@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('membership');
             $table->string('address');
             $table->string('username')->unique();
+            $table->timestamp('approval_status')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

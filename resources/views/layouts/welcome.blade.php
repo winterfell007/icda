@@ -15,7 +15,7 @@
         <style>
 
             body{
-                background-image: url('/icda/resources/views/images/1.jpg');
+                background-image: url('../images/1.jpg');
                 background-size: cover;
             }
             h6, h2{
