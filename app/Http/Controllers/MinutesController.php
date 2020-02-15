@@ -42,7 +42,7 @@ class MinutesController extends Controller
             $agenda->minutes_id = $request->input('current_minute');
 
             $agenda->save();
-        return redirect('minutes')->with('success', 'New item successfully added to agenda');
+        return redirect('/meetings/minutes')->with('success', 'New item successfully added to agenda');
     }
 
     public function upload(Request $request)
@@ -66,7 +66,7 @@ class MinutesController extends Controller
             $minute->minute_dir = $filenameToStore;
             
             $minute->save();
-        return redirect('minutes')->with('success', "Minutes for ".$request->input('meeting-date')." has been successfully uploaded");
+        return redirect('/meetings/minutes')->with('success', "Minutes for ".$request->input('meeting-date')." has been successfully uploaded");
     }
 
     public function editAgenda(Request $request, $id)
@@ -81,7 +81,7 @@ class MinutesController extends Controller
             $agenda->status = $request->input('sub-btn');
 
             $agenda->save();
-        return redirect('minutes')->with('success', 'Agenda Updated');
+        return redirect('/meetings/minutes')->with('success', 'Agenda Updated');
     }
     public function deleteAgenda(Request $request, $id)
     {
@@ -90,7 +90,7 @@ class MinutesController extends Controller
         $agenda = Agenda::find($id);
         $agenda->delete();
             
-        return redirect('minutes')->with('warning', 'Agenda Deleted');
+        return redirect('/meetings/minutes')->with('warning', 'Agenda Deleted');
     }
     public function deleteMinutes(Request $request, $id)
     {
@@ -103,7 +103,7 @@ class MinutesController extends Controller
         $minutes = Minute::find($id);
         $minutes->delete();
             
-        return redirect('minutes')->with('warning', 'Minutes Deleted');
+        return redirect('/meetings/minutes')->with('warning', 'Minutes Deleted');
     }
     /**
      * Show the form for creating a new resource.

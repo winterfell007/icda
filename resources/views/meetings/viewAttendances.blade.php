@@ -22,7 +22,9 @@
 @section('content')
 <div class="container">
     <br>
+    
     <div class="row">
+        
         <div class="col-2">
 
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">New &nbsp;&nbsp;<i class="fas fa-marker"></i></button>
@@ -32,19 +34,45 @@
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+                        <form action="/meetings/attendances" method="post">
+                            @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Mark a New Attendance</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">When was this meeting held?</span>
+                                </div>
+                                <input type="date" name="meeting-date" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                              </div>
+                                <ul class="list-group">
+                                    <?php $i = 1  ?>
+                                @foreach ($users as $user)
+
+                                <li class="list-group-item"> {{$user->firstname}} {{$user->lastname}} <div class="badge badge-light">{{$user->propertyID}}</div>
+                                        <div class="btn-group-toggle d-inline float-right" data-toggle="buttons">
+                                       
+                                            <label class="btn btn-outline-light active" style="border: 1px solid lightgrey">
+                                            <input name="presence-{{$i}}" value="{{$user->id}}" type="checkbox"> <i class="far fa-dot-circle"></i>
+                                            </label>
+                                          </div>
+                                    </li>
+                                    <?php $i++ ?>
+                                @endforeach
+
+                                <input type="hidden" name="count" value={{$i}}>
+                                </ul>
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Discard</button>
-                            <button type="button" class="btn btn-success">Submit Attendance</button>
+                            <button type="submit" class="btn btn-success">Submit Attendance</button>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -52,27 +80,21 @@
 
 
 
-            <br><br>
+            <br><br> 
+            
             <div class="nav flex-column nav-pills attendance-date-navs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-                    aria-selected="true">2020-15-10</a>
-                <a class="nav-link " id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                    aria-selected="false">2020-30-10</a>
-                <a class="nav-link " id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                    aria-selected="false">2010-20-10</a>
-                <a class="nav-link " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">3019-20-09</a>
-                <a class="nav-link " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">3019-20-09</a>
-                <a class="nav-link " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">3019-20-09</a>
-                <a class="nav-link " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">3019-20-09</a>
+                @foreach ($dates as $date)
+            <a class="nav-link" id="v-pills-{{$date->meeting_date}}-tab" data-toggle="pill" href="#v-pills-{{$date->meeting_date}}" role="tab" aria-controls="v-pills-{{$date->meeting_date}}"
+            aria-selected="true">{{ $date -> meeting_date }}</a>           
+                @endforeach
+                
             </div>
         </div>
         <div class="col-8">
+            @include('inc.messages')
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                @foreach ($dates as $date)
+                <div class="tab-pane fade" id="v-pills-{{$date->meeting_date}}" role="tabpanel" aria-labelledby="v-pills-{{$date->meeting_date}}-tab">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
@@ -92,7 +114,7 @@
                                     <div class="badge badge-light"> #{{rand(10000,99999)}} | Chairman</div>
                                     <div class="badge badge-light text-success float-right">present</div>
                                 </li>
-                                <li class="list-group-item">Dapibus ac facilisis in
+                                <li class="list-group-item">{{$date->meeting_date}}
                                     <div class="badge badge-light text-success float-right">present</div>
                                 </li>
                                 <li class="list-group-item">Vestibulum at eros
@@ -124,14 +146,12 @@
                     </div>
 
 
-
-
-
                 </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-            </div>
+               
+                  
+                @endforeach
+         </div> 
+            
         </div>
     </div>
 

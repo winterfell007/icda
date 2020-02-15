@@ -12,7 +12,7 @@
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/minutes">Meetings</a>
+          <a class="nav-link" href="/meetings/minutes">Meetings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/payments">Payments</a>

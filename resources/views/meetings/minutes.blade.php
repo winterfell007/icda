@@ -2,7 +2,7 @@
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
     <a class="nav-link active" href="#">Minutes</a>
-    <a class="nav-link" href="meetings/attendances">
+    <a class="nav-link" href="/meetings/attendances">
         Attendances
         <span class="badge badge-pill bg-light align-text-bottom">27</span>
       </a>
@@ -33,7 +33,7 @@
     Upload Minutes
   </button>
   <br><br>
-  <form action="upload-minutes" method="post" enctype="multipart/form-data">
+  <form action="/meetings/upload-minutes" method="post" enctype="multipart/form-data">
     @csrf
     <div class="collapse" id="upload-collapse">
       <div class="card card-body bg-secondary">
@@ -75,7 +75,7 @@
       <div class="card card-body bg-light">
         <span> 
         
-        <h6><a class="text-secondary" target="_blank" href="storage/uploaded_minutes/{{$minute->minute_dir}}">Minutes for {{$minute->meeting_date}} meeting </a> <span>  <a href="storage/uploaded_minutes/{{$minute->minute_dir}}" download><button class="btn btn-outline-secondary float-right">Download <i class="fas fa-download"></i></button></a> <form style="display:inline;" action="delete-minutes/{{$minute->id}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-outline-danger float-right m-1" data-toggle="tooltip" title="Delete this minute"><i class=" fas fa-trash-alt"></i></button></form></span></h6>
+        <h6><a class="text-secondary" target="_blank" href="storage/uploaded_minutes/{{$minute->minute_dir}}">Minutes for {{$minute->meeting_date}} meeting </a> <span>  <a href="storage/uploaded_minutes/{{$minute->minute_dir}}" download><button class="btn btn-outline-secondary float-right">Download <i class="fas fa-download"></i></button></a> <form style="display:inline;" action="/meetings/delete-minutes/{{$minute->id}}" method="post">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-outline-danger float-right m-1" data-toggle="tooltip" title="Delete this minute"><i class=" fas fa-trash-alt"></i></button></form></span></h6>
         
       </span>
       </div>
@@ -116,7 +116,7 @@
           <div class="col-12 col-lg-8">
 
             <div class="card card-body collapse" id="{{'add-agenda'.$minute->id}}">
-              <form action="add-agenda" method="post">
+              <form action="/meetings/add-agenda" method="post">
                 @csrf
                 <span id="{{'method'.$minute->id}}"></span>
                 <input type="text" name="current_minute" value="{{$minute->id}}" hidden>
@@ -151,7 +151,7 @@
               @foreach ($agendas as $agenda) @if($agenda->minutes_id == $minute->id)
               <div class="tab-pane fade show" id="{{'list-home'.$agenda->id}}" role="tabpanel" aria-labelledby="list-home-list">
               <div><button class="btn btn-sm btn-outline-primary m-1" data-toggle="tooltip" title="Edit this agenda item" id="{{'edit'.$agenda->id}}" onclick="editAgenda('{{$minute->id}}', '{{$agenda->id}}', '{{$agenda->notes}}', '{{$agenda->agenda_item}}')"><i class="fas fa-pencil-alt"></i></button>
-              <form style="display:inline;" method="POST" action="delete-agenda/{{$agenda->id}}"> @csrf @method('DELETE') <button class="btn btn-sm btn-outline-danger m-1" data-toggle="tooltip" title="Delete this agenda item"><i class=" fas fa-trash-alt"></i></button></form>
+              <form style="display:inline;" method="POST" action="/meetings/delete-agenda/{{$agenda->id}}"> @csrf @method('DELETE') <button class="btn btn-sm btn-outline-danger m-1" data-toggle="tooltip" title="Delete this agenda item"><i class=" fas fa-trash-alt"></i></button></form>
                 </div>
                 <p>
                   {{$agenda->notes}}
@@ -194,7 +194,7 @@ function editAgenda(minuteID, agendaID, currentNotes, currentTitle){
     formCard.classList.add('show');
     notes.value = currentNotes;
     title.value = currentTitle;
-    form.action = 'edit-agenda/'+agendaID;
+    form.action = '/meetings/edit-agenda/'+agendaID;
     editBtn.innerText = 'Stop editing';
     methodSpan.innerHTML = '@method("PUT")';
     edit_mode = false;
@@ -202,7 +202,7 @@ function editAgenda(minuteID, agendaID, currentNotes, currentTitle){
   }
     notes.value = '';
     title.value = '';
-    form.action = 'add-agenda';
+    form.action = '/meetings/add-agenda';
     editBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
     methodSpan.innerHTML = "";
     edit_mode = true;
