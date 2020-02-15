@@ -57,8 +57,9 @@
                 color: dimgrey;
             }
             .attendance-date-navs > a.active {
-                background: dimgrey!important;
-                color: lightgrey!important;
+                background: white!important;
+                color: grey!important;
+                outline:1px solid lightgrey!important;
             }
         </style>
 <script src="https://kit.fontawesome.com/c98b43ede1.js" crossorigin="anonymous"></script>

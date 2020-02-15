@@ -7,24 +7,24 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto" style="width: 100%!important;">
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/registry/new-user">Registry 
+          <a class="nav-link" href="/registry/new-user">Registry 
         <!-- <span class="sr-only">(current)</span> -->
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/minutes">Meetings</a>
+          <a class="nav-link" href="/minutes">Meetings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/payments">Payments</a>
+          <a class="nav-link" href="/payments">Payments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/projects">Projects</a>
+          <a class="nav-link" href="/projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/assets">Assets</a>
+          <a class="nav-link" href="/assets">Assets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/icda/public/assets">Reports</a>
+          <a class="nav-link" href="/reports">Reports</a>
         </li>
         <li class="nav-item dropdown float-right" style="left:50%">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user-circle"></i> Guest User</a>

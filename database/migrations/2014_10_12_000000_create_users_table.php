@@ -30,13 +30,13 @@ class CreateUsersTable extends Migration
             $table->string('membership');
             $table->string('address');
             $table->string('username')->unique();
-            $table->timestamp('approval_status')->default(false);
+            $table->string('approval_status')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
-    
+
     /**
      * Reverse the migrations.
      *

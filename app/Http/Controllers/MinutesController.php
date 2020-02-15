@@ -82,7 +82,6 @@ class MinutesController extends Controller
 
             $agenda->save();
         return redirect('minutes')->with('success', 'Agenda Updated');
-        return $id;
     }
     public function deleteAgenda(Request $request, $id)
     {

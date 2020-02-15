@@ -91,6 +91,26 @@ class RegistryController extends Controller
         return redirect('registry/new-user')->with('success', 'New User created!');
     }
 
+
+    public function approveUser(Request $request, $userId)
+    {
+        
+        $user = User::find($userId);
+        $user->approval_status = 1;
+        $user->save();
+
+        return redirect('/registry/users')->with('success', "User $user->username approved");
+    }
+
+    public function disapproveUser(Request $request, $userId)
+    {
+        
+        $user = User::find($userId);
+        $user->approval_status = 0;
+        $user->save();
+
+        return redirect('/registry/users')->with('secondary', "User $user->username disapproved");
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -98,12 +118,25 @@ class RegistryController extends Controller
      */
     public function getUsers()
     {
-        $vars = array(
+      $vars = array(
             'users' => User::all(),
+            'bonafide_users' => User::where('approval_status','=', '1')->get(),
+            'awaiting_users' => User::where('approval_status', null)->get(),
+            'disapproved_users' => User::where('approval_status', 0)->get(),
         );
         return view('registry.users')->with($vars);
     }
 
+    public function deleteDisapprovedUsers()
+    {
+        
+            $disapproved_users = User::where('approval_status', 0)->get();
+            foreach ($disapproved_users as $disapproved_user) {
+                $disapproved_user->delete();
+            }
+        
+        return redirect('/registry/users')->with('error', 'All disapproved users deleted');
+    }
     /**
      * Store a newly created resource in storage.
      *
